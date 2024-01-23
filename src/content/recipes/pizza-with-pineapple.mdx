@@ -2,10 +2,18 @@
 title: Pizza with Pineapple
 duration: 30
 ---
-This looks just like the document field editor, but… this is actually reading/writing to/from MDX.
+This looks just like the <Highlight variant="default">document field</Highlight> editor, but… this is actually reading/writing to/from MDX...
 
 ## Add pineapple
 
-This will frustrate people, but… it's the key ingredient in the recipe!
+This will frustrate people, but… it's the <Highlight variant="default">key ingredient</Highlight> in the recipe!
 
-<IngredientsTable items={[{},{},{"name":"Milk","quantity":"1L"}]} />
+<IngredientsTable items={[{"name":"Pineaples","quantity":"a lot"},{"name":"Tomatoes","quantity":"10"},{"name":"Milk","quantity":"1L"}]} />
+
+This is some text
+
+<List title="My random list">
+  <IngredientsTable items={[{"name":"Milk","quantity":"a lot"},{"name":"Cheese","quantity":"more"}]} />
+
+  <IngredientsTable items={[{"name":"Sugar","quantity":"200g"},{"name":"Salt","quantity":"1 tablespoon"}]} />
+</List>

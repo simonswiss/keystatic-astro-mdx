@@ -4,6 +4,8 @@ import Layout from "../../layouts/base.astro"
 import { getCollection, getEntry } from "astro:content"
 
 import IngredientsTable from "../../components/IngredientsTable.astro"
+import List from "../../components/List.astro"
+import Highlight from "../../components/Highlight.astro"
 
 export const getStaticPaths = (async () => {
   const recipes = await getCollection("recipes")
@@ -24,7 +26,7 @@ const { Content } = await recipe.render()
   <div class="mx-auto mt-20 max-w-7xl p-6">
     <h1 class="text-3xl font-bold">{recipe.data.title}</h1>
     <div class="prose mt-8">
-      <Content components={{ IngredientsTable }} />
+      <Content components={{ IngredientsTable, List, Highlight }} />
     </div>
   </div>
 </Layout>
