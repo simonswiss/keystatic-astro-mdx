@@ -35,9 +35,9 @@ export default config({
                 ),
               },
               ContentView: (props) => (
-                <dl>
+                <div>
                   <pre>{JSON.stringify(props, null, 2)}</pre>
-                </dl>
+                </div>
               ),
             }),
           },
