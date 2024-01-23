@@ -32,13 +32,12 @@ export default config({
                     name: fields.text({ label: "Name" }),
                     quantity: fields.text({ label: "Amount" }),
                   }),
+                  {
+                    label: "Ingredients",
+                    itemLabel: (props) => props.fields.name.value,
+                  },
                 ),
               },
-              ContentView: (props) => (
-                <div>
-                  <pre>{JSON.stringify(props, null, 2)}</pre>
-                </div>
-              ),
             }),
           },
         }),
