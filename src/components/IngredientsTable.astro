@@ -1,0 +1,23 @@
+---
+type Props = {
+  items: {
+    name: string
+    quantity: string
+  }[]
+}
+
+const { items } = Astro.props as Props
+---
+
+<dl
+  class="not-prose mt-8 grid max-w-md grid-cols-[auto,auto] justify-between gap-x-8 gap-y-2 rounded-md bg-zinc-50 p-6 ring-1 ring-black/5"
+>
+  {
+    items.map((item) => (
+      <>
+        <dt>{item.name}</dt>
+        <dd class="justify-self-end font-semibold">{item.quantity}</dd>
+      </>
+    ))
+  }
+</dl>

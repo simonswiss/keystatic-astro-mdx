@@ -1,0 +1,30 @@
+---
+import type { GetStaticPaths } from "astro"
+import Layout from "../../layouts/base.astro"
+import { getCollection, getEntry } from "astro:content"
+
+import IngredientsTable from "../../components/IngredientsTable.astro"
+
+export const getStaticPaths = (async () => {
+  const recipes = await getCollection("recipes")
+  return recipes.map((recipe) => ({
+    params: {
+      slug: recipe.slug,
+    },
+  }))
+}) satisfies GetStaticPaths
+
+const { slug } = Astro.params
+
+const recipe = await getEntry("recipes", slug)
+const { Content } = await recipe.render()
+---
+
+<Layout>
+  <div class="mx-auto mt-20 max-w-7xl p-6">
+    <h1 class="text-3xl font-bold">{recipe.data.title}</h1>
+    <div class="prose mt-8">
+      <Content components={{ IngredientsTable }} />
+    </div>
+  </div>
+</Layout>
